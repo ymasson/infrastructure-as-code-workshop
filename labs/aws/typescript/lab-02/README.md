@@ -2,7 +2,7 @@
 
 In this lab, you'll first create a single EC2 virtual machine (VM). Afterwards, you'll scale that out to a VM per availability zone in your region, and then add a load balancer to spread load across the entire fleet.
 
-> This lab assumes you have a project set up and configured to use AWS. If you don't yet, please complete labs [1](../01-iac/01-creating-a-new-project.md) and [2](../01-iac/02-configuring-aws.md) first.
+> This lab assumes you have a project set up and configured to use AWS. If you don't yet, please complete labs [1](../../01-iac/typescript/01-creating-a-new-project.md) and [2](../../01-iac/typescript/02-configuring-aws.md) first.
 
 ## Step 1 &mdash;  Declare the VM
 
@@ -56,7 +56,7 @@ export const ip = server.publicIp;
 export const hostname = server.publicDns;
 ```
 
-> :white_check_mark: After this change, your `index.ts` should [look like this](./code/01-provisioning-vms/step1.ts).
+> :white_check_mark: After this change, your `index.ts` should [look like this](./code/step1.ts).
 
 ## Step 2 &mdash; Provision the VM and Access It
 
@@ -124,7 +124,7 @@ for (const az of aws.getAvailabilityZones().names) {
 }
 ```
 
-> :white_check_mark: After this change, your `index.ts` should [look like this](./code/01-provisioning-vms/step3.ts).
+> :white_check_mark: After this change, your `index.ts` should [look like this](./code/step3.ts).
 
 Now run a command to update your stack with the new resource definitions:
 
@@ -256,7 +256,7 @@ for (const az of aws.getAvailabilityZones().names) {
 export const url = listener.endpoint.hostname;
 ```
 
-> :white_check_mark: After this change, your `index.ts` should [look like this](./code/01-provisioning-vms/step4.ts).
+> :white_check_mark: After this change, your `index.ts` should [look like this](./code/step4.ts).
 
 Deploy these updates:
 
